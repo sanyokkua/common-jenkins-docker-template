@@ -1,0 +1,14 @@
+version: "2"
+services:
+  jenkins:
+    build: .
+    image: sanyokkua/jenkins
+    container_name: jenkins
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    user: jenkins
+    volumes:
+      - ./jenkins-folder:/var/jenkins_home
+    environment:
+      JENKINS_HOST_HOME: "./jenkins-folder"
